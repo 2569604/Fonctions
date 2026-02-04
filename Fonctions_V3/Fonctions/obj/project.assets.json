@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1 - Travail\\C#\\Fonctions\\Fonctions_V3\\FonctionsV2\\FonctionsV2\\Fonctions\\Fonctions.csproj",
+      "projectUniqueName": "D:\\1 - Travail\\C#\\Github\\Fonctions\\Fonctions_V3\\Fonctions\\Fonctions.csproj",
       "projectName": "Fonctions",
-      "projectPath": "D:\\1 - Travail\\C#\\Fonctions\\Fonctions_V3\\FonctionsV2\\FonctionsV2\\Fonctions\\Fonctions.csproj",
+      "projectPath": "D:\\1 - Travail\\C#\\Github\\Fonctions\\Fonctions_V3\\Fonctions\\Fonctions.csproj",
       "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "D:\\1 - Travail\\C#\\Fonctions\\Fonctions_V3\\FonctionsV2\\FonctionsV2\\Fonctions\\obj\\",
+      "outputPath": "D:\\1 - Travail\\C#\\Github\\Fonctions\\Fonctions_V3\\Fonctions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
