@@ -524,15 +524,16 @@ namespace Fonctions
         /// <summary>
         /// Écrit dans un fichier, gardant les informations ultérieures.
         /// </summary>
-        /// <param name="pFichier"></param>
-        /// <param name="pInfo"></param>
+        /// <param name="pFichier">Nom du fichier/destination</param>
+        /// <param name="pInfo">Info a rajouter au fichier</param>
         static void EcrireFichier(string pFichier, string pInfo)
         {
-            StreamWriter Fichier = new StreamWriter($"{pFichier}.txt", true);
+            StreamWriter Fichier = new StreamWriter($"{pFichier}.txt", true); // true, donc PAS overwrite
             Fichier.WriteLine(pInfo);
             Fichier.Close();
         }
-        static void EcrireFichier(string pFichier, string pInfo, string pVar) // variante qui précise le type et le nom de la variable
+        /// <param name="pVar">variante qui précise le type et le nom de la variable</param>
+        static void EcrireFichier(string pFichier, string pInfo, string pVar) 
         {
             StreamWriter Fichier = new StreamWriter($"{pFichier}.txt", true);
             Fichier.WriteLine(pVar);
@@ -602,9 +603,9 @@ namespace Fonctions
         /// <summary>
         /// On initialise des variables dans le projet
         /// </summary>
-        /// <param name="pFichier"></param>
-        /// <param name="pVar"></param>
-        /// <returns></returns>
+        /// <param name="pFichier">Nom du fichier/destination</param>
+        /// <param name="pVar">le type et le nom de la variable</param>
+        /// <returns>les info du fichier dans le format voulu</returns>
         static string InitialiserVar(string pFichier, string pVar)
         {
             StreamReader Fichier = new StreamReader($"{pFichier}.txt");
@@ -616,6 +617,7 @@ namespace Fonctions
             Fichier.Close();
             return resultat;
         }
+        /// <param name="pTab">Le tableau a initialiser</param>
         static string[] InitialiserVar(string pFichier, string pVar, string[] pTab) // variante pour tableaux
         {
             StreamReader Fichier = new StreamReader($"{pFichier}.txt");
@@ -625,7 +627,7 @@ namespace Fonctions
             {
                 while (!Fichier.EndOfStream)
                 {
-                    if (Fichier.ReadLine() == pVar)
+                    if (Fichier.ReadLine() == pVar) // Ici on parcour le fichier jusqu'a trouvé la variable voulu
                     {
                         reussi = true;
                         break;
