@@ -97,9 +97,7 @@ namespace Fonctions
                     //    Restart();
                     //    break;
                     default:
-                        Console.WriteLine("ERREUR\r\n-----------  \r\nAttendez...");
-                        Thread.Sleep(1500);
-                        Console.Clear();
+                        ErreurMsg();
                         Console.Write("Entrez le numéro d'exercice à tester : ");
                         break;
                 }
