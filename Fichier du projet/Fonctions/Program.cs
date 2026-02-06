@@ -800,6 +800,7 @@ namespace Fonctions
             Thread.Sleep(350);
             Console.WriteLine(".");
             Thread.Sleep(350);
+            Console.Clear();
         }
         /// <param name="pMessage">Le message d'erreur</param>
         static void ErreurMsg(string pMessage) 
@@ -813,6 +814,7 @@ namespace Fonctions
             Thread.Sleep(300);
             Console.WriteLine(".");
             Thread.Sleep(300);
+            Console.Clear();
         }
         /// <param name="pTemp">Le temp d'attente</param>
         static void ErreurMsg(string pMessage, int pTemp) // Version ou on peut choisir le temps, en millisecondes
@@ -826,6 +828,7 @@ namespace Fonctions
             Thread.Sleep(pTemp);
             Console.WriteLine(".");
             Thread.Sleep(pTemp);
+            Console.Clear();
         }
 
         /// <summary>
