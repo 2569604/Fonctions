@@ -340,26 +340,20 @@ namespace Fonctions
 
         static void Ex1()
         {
-            int[] Tab = { 1, 2, 3, 6, 2, 3 };
+            int[] tab = { 2, 2, 3, 6, 2, 3 };
 
             Console.WriteLine("Voici le tableau Tab : ");
-            for (int i = 0; i < Tab.Length; i++)
-            {
-                Console.Write($"{Tab[i]} ");
-            }
+            AfficherTab(tab, "esp");
 
-            EcrireFichier("Variables", Tab, "int[] Tab");
-
-            for(int i = 0; i < Tab.Length;i++)
+            EcrireFichier("Variables", tab, "int[] Tab");
+            
+            for(int i = 0; i < tab.Length;i++)
             {
-                Tab[i] = int.Parse(InitialiserVar("Variables", "int[] Tab", Tab)[i]);
+                tab[i] = int.Parse(InitialiserVar("Variables", "int[] Tab", tab)[i]);
             }
 
             Console.WriteLine("Voici le tableau Tab après : ");
-            for (int i = 0; i < Tab.Length; i++)
-            {
-                Console.Write($"{Tab[i]} ");
-            }
+            AfficherTab(tab, "esp");
 
         }
 
@@ -389,21 +383,21 @@ namespace Fonctions
                 case "cro":
                     for (int i = 0; i < pTab.GetLength(0); i++)
                     {
-                        if (i == pTab.Length - 1) { Console.Write($"[{pTab[i]}]"); }
+                        if (i == pTab.Length - 1) { Console.WriteLine($"[{pTab[i]}]"); }
                         else { Console.Write($"[{pTab[i]}] "); }
                     }
                     break;
                 case "esp":
                     for (int i = 0; i < pTab.GetLength(0); i++)
                     {
-                        if (i == pTab.Length - 1) { Console.Write($"{pTab[i]}"); }
+                        if (i == pTab.Length - 1) { Console.WriteLine($"{pTab[i]}"); }
                         else { Console.Write($"{pTab[i]} "); }
                     }
                     break;
                 case "vir":
                     for (int i = 0; i < pTab.GetLength(0); i++)
                     {
-                        if (i == pTab.Length - 1) { Console.Write($"{pTab[i]}"); }
+                        if (i == pTab.Length - 1) { Console.WriteLine($"{pTab[i]}"); }
                         else { Console.Write($"{pTab[i]},"); }
                         
                     }
@@ -411,14 +405,14 @@ namespace Fonctions
                 case "viresp":
                     for (int i = 0; i < pTab.GetLength(0); i++)
                     {
-                        if (i == pTab.Length - 1) { Console.Write($"{pTab[i]}"); }
+                        if (i == pTab.Length - 1) { Console.WriteLine($"{pTab[i]}"); }
                         else { Console.Write($"{pTab[i]}, "); }
                     }
                     break;
                 default:
                     for (int i = 0; i < pTab.GetLength(0); i++)
                     {
-                        if (i == pTab.Length - 1) { Console.Write($"{pTab[i]}"); }
+                        if (i == pTab.Length - 1) { Console.WriteLine($"{pTab[i]}"); }
                         else { Console.Write($"{pTab[i]}, "); }
                     }
                     break;
@@ -429,8 +423,19 @@ namespace Fonctions
         {
             for (int i = 0; i < pTab.GetLength(0); i++)
             {
-                if (i == pTab.Length - 1) { Console.Write($"{pTab[i]}"); }
+                if (i == pTab.Length - 1) { Console.WriteLine($"{pTab[i]}"); }
                 else { Console.Write($"{pTab[i]}, "); }
+            }
+        }
+        static void AfficherTab(string[,] pTab)
+        {
+            for (int i = 0; i < pTab.GetLength(0); i++)
+            {
+                for (int j = 0; j < pTab.GetLength(1); j++)
+                {
+                    Console.Write($"{pTab[i, j]}, ");
+                }
+                Console.WriteLine();
             }
         }
         static void AfficherTab(string[,] pTab, string pStyle) //version pour 2D
@@ -490,17 +495,45 @@ namespace Fonctions
             }
             
         }
-        static void AfficherTab(string[,] pTab)
+        static void AfficherTab(int[] pTab) // Pour les non-strings
         {
+            string[] pTabString = new string[pTab.Length];
+            for(int i = 0; i < pTab.Length; i++)
+            {
+                pTabString[i] = pTab[i].ToString();
+            }
+            AfficherTab(pTabString);
+        }
+        static void AfficherTab(int[] pTab, string pStyle) // Pour les non-strings
+        {
+            string[] pTabString = new string[pTab.Length];
+            for (int i = 0; i < pTab.Length; i++)
+            {
+                pTabString[i] = pTab[i].ToString();
+            }
+            AfficherTab(pTabString, pStyle);
+        }
+        static void AfficherTab(int[,] pTab) // Pour les non-strings
+        {
+            string[,] pTabString = new string[pTab.GetLength(0), pTab.GetLength(1)];
+            for(int i = 0; i < pTab.GetLength(0); i++)
+            {
+                for(int j = 0; j < pTab.GetLength(1); j++)
+                pTabString[i, j] = pTab[i, j].ToString();
+            }
+            AfficherTab(pTabString);
+        }
+        static void AfficherTab(int[,] pTab, string pStyle) // Pour les non-strings
+        {
+            string[,] pTabString = new string[pTab.GetLength(0), pTab.GetLength(1)];
             for (int i = 0; i < pTab.GetLength(0); i++)
             {
                 for (int j = 0; j < pTab.GetLength(1); j++)
-                {
-                    Console.Write($"{pTab[i, j]}, ");
-                }
-                Console.WriteLine();
+                    pTabString[i, j] = pTab[i, j].ToString();
             }
+            AfficherTab(pTabString, pStyle);
         }
+
 
         /// <summary>
         /// Crée un fichier ou le vide s'il existe déjà
